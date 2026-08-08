@@ -18,7 +18,7 @@
 ### 📡 Executive Summary & Hard Proofs
 
 ```yaml
-Role: Backend Developer (Go / Python)
+Role: Backend Developer (Go / Java / Python)
 Specialization: High-Load Systems, Distributed Architectures, Fault-Tolerant APIs
 Status: Open to internships, full-time engineering roles, and high-impact projects
 ```
@@ -31,19 +31,9 @@ Status: Open to internships, full-time engineering roles, and high-impact projec
 
 ### 🏗 Architecture & Engineering Highlights
 
-```
-+-------------------------------------------------------------------------+
-| [T-Bank x HSE Practicum Engine]                                         |
-| Client Req ---> [ Nginx Reverse Proxy / SSL ]                           |
-|                      |                                                  |
-|                      v                                                  |
-|           [ FastAPI / Go Core Service ]                                 |
-|              |                  |                                       |
-|       (Cache Layer)     (Persistent Store)       (Background Workers)   |
-|              v                  v                         v             |
-|       [ Redis Cluster ]  [ PostgreSQL + ACID ]   [ Async Task Queue ]   |
-+-------------------------------------------------------------------------+
-```
+<div align="center">
+  <img src="./arch.svg" alt="T-Bank x HSE System Architecture" width="100%" />
+</div>
 
 ---
 
@@ -51,8 +41,8 @@ Status: Open to internships, full-time engineering roles, and high-impact projec
 
 | Layer | Technologies & Tooling |
 | :--- | :--- |
-| **Languages & Core** | `Go (Golang)`, `Python 3.12+`, `SQL`, `Bash` |
-| **Frameworks & API** | `FastAPI`, `Gin / Chi`, `REST`, `gRPC`, `WebSocket` |
+| **Languages & Core** | `Go (Golang)`, `Java`, `Python 3.12+`, `SQL`, `Bash` |
+| **Frameworks & API** | `FastAPI`, `Spring Boot`, `Gin / Chi`, `REST`, `gRPC`, `WebSocket` |
 | **Data & Caching** | `PostgreSQL` (Indexing, EXPLAIN ANALYZE), `Redis`, `MongoDB` |
 | **Infra & DevOps** | `Docker`, `Docker Compose`, `Git / GitHub Actions`, `Nginx`, `Linux` |
 | **Testing & Reliability** | `k6` (Load Testing), `Pytest`, `Unit / Integration Testing` |
