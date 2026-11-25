@@ -142,7 +142,7 @@ Seat booking for the moment sales open — concerts, cinemas, sports: few seats,
 
 <div align="center">
 
-<a href="#stats"><img src="https://streak-stats.demolab.com/?user=JayceWright&theme=dark&background=0d1117&border=00ff88&stroke=00ff88&ring=00ff88&fire=00ff88&currStreakNum=00ff88&sideNums=58a6ff&sideLabels=8b949e&dates=8b949e&hide_border=true" alt="GitHub Streak" width="95%" /></a>
+<a href="#stats"><img src="https://streak-stats.demolab.com/?user=JayceWright&v=2026112501&theme=dark&background=0d1117&border=00ff88&stroke=00ff88&ring=00ff88&fire=00ff88&currStreakNum=00ff88&sideNums=58a6ff&sideLabels=8b949e&dates=8b949e&hide_border=true" alt="GitHub Streak" width="95%" /></a>
 
 <br/><br/>
 
