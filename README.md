@@ -2,7 +2,7 @@
 <div align="center">
 
 <!-- Animated typing header -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=22&duration=1500&pause=400&color=00FF88&center=true&vCenter=true&multiline=true&repeat=true&width=630&height=95&lines=Backend+Engineer+%7C+Systems+Thinker;Distributed+Locks+%2B+ACID+%3D+Zero+double-bookings;1000+VU+%E2%86%92+avg+250ms+%7C+0+errors+%7C+0+failures;+" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=22&duration=1500&pause=400&color=00FF88&center=true&vCenter=true&multiline=true&repeat=true&width=630&height=95&lines=Software+Engineer+%7C+Go+%C2%B7+Java;Digital+Asset+Manager+%C2%B7+Xsolla;API+%C2%B7+CDN+%C2%B7+Webhooks+%C2%B7+MCP+%C2%B7+CLI;Distributed+Locks+%2B+ACID+%3D+Zero+double-bookings;+" alt="Typing SVG" />
 
 <br/>
 
@@ -24,16 +24,42 @@
 ## `$ whoami`
 
 ```yaml
-name:     Jayce Wright (Azizbek Ismoilov)
-role:     Backend Engineer
-stack:    Java 21 · Spring Boot · PostgreSQL · Redis · Docker · k6
-focus:    High-load systems, fault-tolerant APIs, distributed architectures
-status:   Open to internships & full-time roles
-location: Russia · Ready to relocate
+name:     Jayce Wright
+role:       Software Engineer
+experience: Xsolla — Go (Sep–Nov 2026) · T-Bank — Java (Apr–Jun 2026)
+stack:      Go · PostgreSQL · Google Cloud · Kubernetes · Java 21 · Spring Boot
+focus:      APIs for humans and AI agents, MCP, fault-tolerant backends
+languages:  Russian (native) · English (C1)
+location:   Perm, Russia · open to Moscow, Yekaterinburg, remote
+status:     Open to full-time roles
 ```
 
-I don't just write code that works — I write code that holds under pressure.  
-My benchmark is **1000 concurrent users**, not 1.
+Building backends that keep working under load and are easy to integrate with.  
+At Xsolla: built in Go a service that stores and delivers game assets, for people and AI agents alike.
+
+---
+
+## `$ cat work/xsolla.md`
+
+### 🗂️ Digital Asset Manager `Xsolla · Go · Sep–Nov 2026`
+
+A service that stores, processes and delivers game assets (images, 3D models, files) for Xsolla.
+
+- **Uploads & processing** — resumable uploads to Google Cloud Storage, image and 3D model processing (libvips, glTF, Draco, KTX2), file versions and folders
+- **CDN delivery** — Cloudflare Workers with signed, expiring and one-time download links
+- **`damctl` CLI** — OAuth sign-in and the full asset workflow from the terminal
+- **Remote MCP server** — AI agents (Claude, ChatGPT, Cursor) search, upload and manage assets through the [Model Context Protocol](https://modelcontextprotocol.io), with confirmations before destructive actions
+- **OAuth 2.1 authorization server** for MCP clients — PKCE, dynamic client registration, refresh-token rotation, Okta sign-in
+- **Account webhooks** — Standard Webhooks signatures, transactional outbox, retries, SSRF protection
+- **LLM evals** — a test bench that measures how reliably different models pick the right tool, with cost tracking
+- **Spec-first REST API** — OpenAPI as the source of truth, code generation, CI gates for contract drift, mutation testing on changed lines
+
+### `$ open dam-architecture.svg`
+<div align="center">
+  <img src="./dam-arch.svg" alt="Digital Asset Manager — architecture" width="100%" />
+</div>
+
+**Stack:** `Go` `PostgreSQL` `OpenAPI` `MCP` `OAuth 2.1` `Google Cloud Storage` `Pub/Sub` `Cloudflare Workers` `TypeScript` `OpenTelemetry` `Kubernetes` `Helm` `GitLab CI` `SonarQube` `k6`
 
 ---
 
@@ -43,54 +69,45 @@ My benchmark is **1000 concurrent users**, not 1.
 &nbsp;&nbsp;&nbsp;&nbsp;Team Competitive Programming Contest. Team of 3. Work under pressure, won under pressure.
 
 🏦 **Backend Lead** `T-Bank × HSE Practicum 2026`  
-&nbsp;&nbsp;&nbsp;&nbsp;Led a 5-person team for 10 weeks (600+ hours). Public defence before T-Bank && HSE jury.  
-&nbsp;&nbsp;&nbsp;&nbsp;**58 PRs · 222+ commits · Full CI/CD pipeline built from scratch**
-
-⚡ **1000 VU Load Test** `k6 · 0 errors · 0 double-bookings`  
-&nbsp;&nbsp;&nbsp;&nbsp;avg 250ms · p95 465ms · 0 errors 5xx · 0 race conditions
+&nbsp;&nbsp;&nbsp;&nbsp;Led a 5-person team for 10 weeks, built the CI/CD pipeline from scratch. Public defence before T-Bank and HSE jury.
 
 ---
 
-## `$ cat projects/featured.md`
+## `$ cat projects.md`
 
 <table>
 <tr>
-<td width="60%">
+<td width="65%">
 
 ### 🎫 [T-Reserve Engine](https://github.com/TicketRace/T-RESERVE-ENGINE)
 `T-Bank × HSE · Production · Backend Lead`
 
-High-load ticket booking system with **dual-layer race condition protection**:
-
-- **Layer 1 — Redis SETNX** `~2ms fast-reject`  
-  999 of 1000 concurrent requests rejected before touching the database
-- **Layer 2 — PostgreSQL `SELECT FOR UPDATE NOWAIT`** `ACID source of truth`  
-  1 winner gets the ticket. Zero double-bookings guaranteed.
-
-**SafetyNet Scheduler** — auto-release expired locks every 30s via partial index scan  
-**Graceful Degradation** — Redis failure → system falls back to PG-only, stays alive  
-**WebSocket STOMP** — real-time seat map updates for all connected clients  
-**RabbitMQ async pipeline** — PDF generation → MinIO → email delivery (non-blocking)
+Seat booking for the moment sales open — concerts, cinemas, sports: few seats, thousands of fans hitting the same ones at once.
+- **Redis SETNX** absorbs the rush — ~2 ms reject, 999 of 1000 requests for a taken seat never reach the database
+- **PostgreSQL `SELECT FOR UPDATE NOWAIT`** guarantees the sale — one winner, zero double-bookings, even with Redis down
+- **SafetyNet** frees expired holds every 30 s (partial index) · **graceful degradation** to PostgreSQL only
+- **WebSocket STOMP** live seat map · **RabbitMQ** pipeline: PDF → MinIO → email
+- **2 instances behind Nginx**, stateless JWT · CI: JUnit → Testcontainers → Playwright E2E → deploy
 
 </td>
-<td width="40%" align="center">
+<td width="35%" align="center">
 
-| Metric | Result |
-|--------|--------|
-| 🟢 Concurrent VUs | **1,000** |
-| ⚡ Avg response | **250ms** |
-| 📊 p95 latency | **465ms** |
-| ❌ 5xx errors | **0** |
-| 🎫 Double-bookings | **0** |
-| 🔁 PRs merged | **58** |
+`k6 · 1000 VU on one seat`
+
+| | PG only | Redis + PG |
+|---|---|---|
+| ⚡ Avg | 450–670ms | **250ms** |
+| 📊 p95 | 780–1210ms | **465ms** |
+| 🗄️ DB transactions | 300–500 | **1** |
+| ❌ 5xx | cascading | **0** |
 
 </td>
 </tr>
 </table>
 
-**Stack:** `Java 21` `Spring Boot 3.3` `PostgreSQL 16` `Redis 7` `RabbitMQ` `Docker` `Nginx` `Prometheus` `Grafana` `k6` `Testcontainers` `GitHub Actions`
+**Stack:** `Java 21` `Spring Boot 3.3` `PostgreSQL 16` `Redis 7` `RabbitMQ` `MinIO` `Angular 17` `Docker` `Nginx` `Prometheus` `Grafana` `k6` `Testcontainers` `Playwright` `GitHub Actions`
 
-### 🏛️ Architecture & Engineering Highlights
+### `$ open architecture.svg`
 <div align="center">
   <img src="./arch.svg" alt="T-Reserve Engine — System Architecture" width="100%" />
 </div>
@@ -101,14 +118,21 @@ High-load ticket booking system with **dual-layer race condition protection**:
 
 ```json
 {
-  "languages":   ["Java 21 (primary)", "Python", "SQL", "Bash"],
-  "frameworks":  ["Spring Boot 3", "Spring Security", "Hibernate/JPA", "FastAPI"],
-  "databases":   ["PostgreSQL 16", "Redis 7", "RabbitMQ"],
-  "infra":       ["Docker", "Nginx", "GitHub Actions", "Linux", "Railway"],
-  "monitoring":  ["Prometheus", "Grafana", "HikariCP metrics"],
-  "testing":     ["k6", "JMeter", "JUnit 5", "Mockito", "Testcontainers"],
-  "patterns":    ["Distributed Locking", "Circuit Breaker", "Graceful Degradation",
-                  "State Machine", "Ports & Adapters"]
+  "languages":   ["Go", "Java 21", "TypeScript", "JavaScript", "Python", "C#", "SQL", "Bash"],
+  "frameworks":  ["oapi-codegen", "MCP Go SDK", "Spring Boot 3", "Spring Security", "Spring Data JPA",
+                  "FastAPI", "Angular 17"],
+  "databases":   ["PostgreSQL", "Redis", "Flyway", "Hibernate", "SQLAlchemy"],
+  "messaging":   ["RabbitMQ", "Google Pub/Sub", "WebSocket STOMP", "Webhooks"],
+  "cloud":       ["Google Cloud Storage", "Cloudflare Workers", "MinIO S3", "Kubernetes", "Helm"],
+  "infra":       ["Docker", "GitLab CI", "GitHub Actions", "Maven", "Nginx", "Railway", "Linux"],
+  "security":    ["OAuth 2.1 / PKCE", "Okta", "JWT", "BCrypt", "RBAC"],
+  "monitoring":  ["OpenTelemetry", "Datadog", "Prometheus", "Grafana"],
+  "testing":     ["Mutation testing", "LLM evals", "k6", "JMeter", "JUnit 5", "Mockito",
+                  "Testcontainers", "Playwright", "SonarQube"],
+  "ai":          ["MCP", "Claude Code", "Codex", "Cursor"],
+  "patterns":    ["Spec-first API", "Transactional Outbox", "Distributed Locking", "Idempotency keys",
+                  "State Machine", "Cache-Aside", "Circuit Breaker", "Graceful Degradation",
+                  "Ports & Adapters"]
 }
 ```
 
@@ -117,11 +141,6 @@ High-load ticket booking system with **dual-layer race condition protection**:
 ## `$ git log --stat`
 
 <div align="center">
-
-<a href="#stats"><img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=JayceWright&theme=github_dark" height="160em" alt="GitHub Stats" /></a>
-<a href="#stats"><img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=JayceWright&theme=github_dark" height="160em" alt="Top Languages" /></a>
-
-<br/><br/>
 
 <a href="#stats"><img src="https://streak-stats.demolab.com/?user=JayceWright&theme=dark&background=0d1117&border=00ff88&stroke=00ff88&ring=00ff88&fire=00ff88&currStreakNum=00ff88&sideNums=58a6ff&sideLabels=8b949e&dates=8b949e&hide_border=true" alt="GitHub Streak" width="95%" /></a>
 

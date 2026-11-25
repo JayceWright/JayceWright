@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1168" height="760" viewBox="0 0 1168 760" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, monospace">
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#00ff88"/>
+    </marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#58a6ff"/>
+    </marker>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0 L0 0 0 24" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1168" height="760" fill="#0d1117"/>
+  <rect width="1168" height="760" fill="url(#grid)"/>
+
+  <text x="32" y="44" fill="#00ff88" font-size="20" font-weight="600">$ dam --architecture</text>
+  <text x="32" y="68" fill="#8b949e" font-size="13">Digital Asset Manager &#183; Xsolla &#183; Go</text>
+
+  <!-- clients -->
+  <g font-size="13">
+    <rect x="32" y="96" width="250" height="64" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="157" y="123" fill="#e6edf3" text-anchor="middle" font-weight="600">Web UI</text>
+    <text x="157" y="144" fill="#8b949e" text-anchor="middle" font-size="11">admin panel &#183; REST</text>
+
+    <rect x="306" y="96" width="250" height="64" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="431" y="123" fill="#e6edf3" text-anchor="middle" font-weight="600">damctl CLI</text>
+    <text x="431" y="144" fill="#8b949e" text-anchor="middle" font-size="11">OAuth sign-in &#183; keychain</text>
+
+    <rect x="580" y="96" width="270" height="64" rx="8" fill="#0d1117" stroke="#00ff88"/>
+    <text x="715" y="123" fill="#e6edf3" text-anchor="middle" font-weight="600">AI agents</text>
+    <text x="715" y="144" fill="#8b949e" text-anchor="middle" font-size="11">Claude &#183; ChatGPT &#183; Cursor &#183; MCP</text>
+
+    <rect x="874" y="96" width="262" height="64" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="1005" y="123" fill="#e6edf3" text-anchor="middle" font-weight="600">Partner services</text>
+    <text x="1005" y="144" fill="#8b949e" text-anchor="middle" font-size="11">server-to-server &#183; webhooks</text>
+  </g>
+
+  <!-- client arrows -->
+  <g stroke="#58a6ff" stroke-width="1.5" fill="none" marker-end="url(#b)">
+    <path d="M157 160 V206"/>
+    <path d="M431 160 V206"/>
+    <path d="M1005 160 V206"/>
+  </g>
+  <path d="M715 160 V206" stroke="#00ff88" stroke-width="1.5" fill="none" marker-end="url(#g)"/>
+
+  <!-- API process -->
+  <rect x="32" y="212" width="1104" height="250" rx="10" fill="#0f1a14" stroke="#00ff88" stroke-width="1.5"/>
+  <text x="52" y="240" fill="#00ff88" font-size="15" font-weight="600">DAM API &#183; Go modular monolith</text>
+  <text x="1116" y="240" fill="#8b949e" font-size="11" text-anchor="end">Kubernetes &#183; Helm &#183; OpenTelemetry</text>
+
+  <g font-size="12">
+    <rect x="52" y="256" width="250" height="78" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="68" y="280" fill="#e6edf3" font-weight="600">REST API</text>
+    <text x="68" y="300" fill="#8b949e" font-size="11">OpenAPI spec-first</text>
+    <text x="68" y="318" fill="#8b949e" font-size="11">assets &#183; files &#183; folders</text>
+
+    <rect x="318" y="256" width="250" height="78" rx="6" fill="#0d1117" stroke="#00ff88"/>
+    <text x="334" y="280" fill="#e6edf3" font-weight="600">Remote MCP /mcp</text>
+    <text x="334" y="300" fill="#8b949e" font-size="11">tools for AI agents</text>
+    <text x="334" y="318" fill="#8b949e" font-size="11">confirm before destructive</text>
+
+    <rect x="584" y="256" width="250" height="78" rx="6" fill="#0d1117" stroke="#00ff88"/>
+    <text x="600" y="280" fill="#e6edf3" font-weight="600">OAuth 2.1 server</text>
+    <text x="600" y="300" fill="#8b949e" font-size="11">PKCE &#183; dynamic clients</text>
+    <text x="600" y="318" fill="#8b949e" font-size="11">refresh rotation &#183; Okta SSO</text>
+
+    <rect x="850" y="256" width="266" height="78" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="866" y="280" fill="#e6edf3" font-weight="600">Access &amp; audit</text>
+    <text x="866" y="300" fill="#8b949e" font-size="11">roles &#183; ownership &#183; freeze</text>
+    <text x="866" y="318" fill="#8b949e" font-size="11">idempotency keys &#183; action log</text>
+
+    <text x="52" y="362" fill="#58a6ff" font-size="12" font-weight="600">background workers</text>
+
+    <rect x="52" y="372" width="250" height="72" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="68" y="396" fill="#e6edf3" font-weight="600">Upload verification</text>
+    <text x="68" y="416" fill="#8b949e" font-size="11">size &#183; type &#183; checksum</text>
+
+    <rect x="318" y="372" width="250" height="72" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="334" y="396" fill="#e6edf3" font-weight="600">Media processing</text>
+    <text x="334" y="416" fill="#8b949e" font-size="11">libvips &#183; glTF &#183; Draco &#183; KTX2</text>
+
+    <rect x="584" y="372" width="250" height="72" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="600" y="396" fill="#e6edf3" font-weight="600">Delivery reconcile</text>
+    <text x="600" y="416" fill="#8b949e" font-size="11">publish &#183; revoke &#183; cleanup</text>
+
+    <rect x="850" y="372" width="266" height="72" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="866" y="396" fill="#e6edf3" font-weight="600">Webhook delivery</text>
+    <text x="866" y="416" fill="#8b949e" font-size="11">outbox &#183; signed &#183; retries</text>
+  </g>
+
+  <!-- storage row -->
+  <g font-size="13">
+    <rect x="32" y="520" width="250" height="96" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="157" y="548" fill="#e6edf3" text-anchor="middle" font-weight="600">PostgreSQL</text>
+    <text x="157" y="570" fill="#8b949e" text-anchor="middle" font-size="11">assets &#183; versions &#183; grants</text>
+    <text x="157" y="588" fill="#8b949e" text-anchor="middle" font-size="11">job queue (SKIP LOCKED)</text>
+    <text x="157" y="606" fill="#8b949e" text-anchor="middle" font-size="11">transactional outbox</text>
+
+    <rect x="306" y="520" width="250" height="96" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="431" y="548" fill="#e6edf3" text-anchor="middle" font-weight="600">Google Cloud Storage</text>
+    <text x="431" y="570" fill="#8b949e" text-anchor="middle" font-size="11">private bucket &#183; originals</text>
+    <text x="431" y="588" fill="#8b949e" text-anchor="middle" font-size="11">public bucket &#183; published</text>
+    <text x="431" y="606" fill="#8b949e" text-anchor="middle" font-size="11">resumable uploads</text>
+
+    <rect x="580" y="520" width="270" height="96" rx="8" fill="#0d1117" stroke="#58a6ff"/>
+    <text x="715" y="548" fill="#e6edf3" text-anchor="middle" font-weight="600">Pub/Sub</text>
+    <text x="715" y="570" fill="#8b949e" text-anchor="middle" font-size="11">object finalized events</text>
+    <text x="715" y="588" fill="#8b949e" text-anchor="middle" font-size="11">+ polling fallback</text>
+
+    <rect x="874" y="520" width="262" height="96" rx="8" fill="#0d1117" stroke="#00ff88"/>
+    <text x="1005" y="548" fill="#e6edf3" text-anchor="middle" font-weight="600">Cloudflare Workers CDN</text>
+    <text x="1005" y="570" fill="#8b949e" text-anchor="middle" font-size="11">signed &#183; expiring links</text>
+    <text x="1005" y="588" fill="#8b949e" text-anchor="middle" font-size="11">one-time share links</text>
+    <text x="1005" y="606" fill="#8b949e" text-anchor="middle" font-size="11">safe download names</text>
+  </g>
+
+  <!-- data flow arrows -->
+  <g stroke="#58a6ff" stroke-width="1.5" fill="none" marker-end="url(#b)">
+    <path d="M157 462 V514"/>
+    <path d="M431 462 V514"/>
+    <path d="M556 568 H574"/>
+    <path d="M715 520 V450" />
+    <path d="M1005 462 V514"/>
+  </g>
+
+  <!-- end users -->
+  <g font-size="13">
+    <rect x="874" y="664" width="262" height="56" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <text x="1005" y="690" fill="#e6edf3" text-anchor="middle" font-weight="600">Players &amp; games</text>
+    <text x="1005" y="708" fill="#8b949e" text-anchor="middle" font-size="11">download over CDN</text>
+  </g>
+  <path d="M1005 616 V658" stroke="#00ff88" stroke-width="1.5" fill="none" marker-end="url(#g)"/>
+
+  <!-- legend -->
+  <g font-size="11" fill="#8b949e">
+    <line x1="32" y1="692" x2="64" y2="692" stroke="#00ff88" stroke-width="2"/>
+    <text x="72" y="696">AI &amp; delivery path</text>
+    <line x1="232" y1="692" x2="264" y2="692" stroke="#58a6ff" stroke-width="2"/>
+    <text x="272" y="696">requests &amp; data</text>
+    <text x="32" y="724">CI: GitLab &#183; golangci-lint &#183; SonarQube &#183; mutation testing &#183; e2e &#183; LLM evals</text>
+  </g>
+</svg>
