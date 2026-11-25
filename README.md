@@ -24,7 +24,7 @@
 ## `$ whoami`
 
 ```yaml
-name:     Jayce Wright
+name:       Jayce Wright
 role:       Software Engineer
 experience: Xsolla — Go (Sep–Nov 2026) · T-Bank — Java (Apr–Jun 2026)
 stack:      Go · PostgreSQL · Google Cloud · Kubernetes · Java 21 · Spring Boot
